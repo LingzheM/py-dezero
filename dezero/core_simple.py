@@ -1,20 +1,9 @@
-# steps/step21
+# dezero/core_simple
 
 import weakref
 import contextlib
-
 import numpy as np
 
-def as_variable(obj):
-    if isinstance(obj, Variable):
-        return obj
-    return Variable(obj)
-
-def as_array(x):
-    # 检查numpy.float64等属于标量的类型
-    if np.isscalar(x):
-        return np.array(x)
-    return x
 
 class Config:
     # 是否启用反向传播
@@ -102,6 +91,17 @@ class Variable:
     
     def __repr__(self):
         return f'Variable({self.data})'
+
+def as_variable(obj):
+    if isinstance(obj, Variable):
+        return obj
+    return Variable(obj)
+
+def as_array(x):
+    # 检查numpy.float64等属于标量的类型
+    if np.isscalar(x):
+        return np.array(x)
+    return x
 
 
 class Function:

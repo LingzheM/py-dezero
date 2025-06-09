@@ -1,4 +1,5 @@
 
+# 从step23到step32, 使用simple_core
 is_simple_core = True
 
 if is_simple_core:
